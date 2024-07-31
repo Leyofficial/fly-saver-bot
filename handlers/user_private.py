@@ -1,7 +1,9 @@
-from aiogram import Router, types
-from aiogram.filters import CommandStart,Command
+from aiogram import Router, types, F
+from aiogram.filters import CommandStart, Command, or_f
+from filters.chat_types import ChatTypeFilter
 
 my_user_private = Router()
+my_user_private.message.filter(ChatTypeFilter(['private']))
 
 ABOUT_BOT = """
 FlySaverBot ✈️
@@ -25,7 +27,8 @@ async def start_cmd(message: types.Message):
 async def about_cmd(message: types.Message):
     await message.answer(ABOUT_BOT)
 
-@my_user_private.message(Command('menu'))
+
+@my_user_private.message(or_f(Command('menu'), (F.text.lower() == "меню")))
 async def menu_cmd(message: types.Message):
     await message.answer("Это меню!")
 
