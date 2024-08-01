@@ -1,23 +1,42 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from enum import Enum
 
-start_kb = ReplyKeyboardMarkup(
-    keyboard=[
+from aiogram.filters.callback_data import CallbackData
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.utils.keyboard import InlineKeyboardBuilder
+
+
+class MyCallback(CallbackData, prefix="my"):
+    foo: str
+
+
+class Action(str, Enum):
+    start = "запуск"
+    help = "помощь"
+    search = "поиск"
+    favorite = "избранные"
+    add = "добавить"
+    delete = "удалить"
+    notification = "уведомления"
+    settings = "настройки"
+    about = "о нас"
+
+
+start_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
         [
-            KeyboardButton(text="Запуск 🚀"),
-            KeyboardButton(text="Помощь ❓"),
-            KeyboardButton(text="Поиск авиабилетов 🔍")
+            InlineKeyboardButton(text="Запуск 🚀", callback_data='запуск'),
+            InlineKeyboardButton(text="Помощь ❓", callback_data=MyCallback(foo='помощь').pack()),
+            InlineKeyboardButton(text="Поиск авиабилетов 🔍", callback_data=MyCallback(foo='поиск').pack()),
         ],
         [
-            KeyboardButton(text="Избранные рейсы 💼"),
-            KeyboardButton(text="Добавить рейс ➕"),
-            KeyboardButton(text="Удалить рейс ❌")
+            InlineKeyboardButton(text="Избранные рейсы 💼", callback_data='избранные'),
+            InlineKeyboardButton(text="Добавить рейс ➕", callback_data='добавить'),
+            InlineKeyboardButton(text="Удалить рейс ❌", callback_data='удалить'),
         ],
         [
-            KeyboardButton(text="Уведомления 📢"),
-            KeyboardButton(text="Настройки ⚙️"),
-            KeyboardButton(text="О нас ℹ️")
-        ]
+            InlineKeyboardButton(text="Уведомления 📢", callback_data='уведомления'),
+            InlineKeyboardButton(text="Настройки ⚙️", callback_data='настройки'),
+            InlineKeyboardButton(text="О нас ℹ️", callback_data='о нас'),
+        ],
     ],
-    resize_keyboard=True,
-    input_field_placeholder="Что вас интересует?"
 )
