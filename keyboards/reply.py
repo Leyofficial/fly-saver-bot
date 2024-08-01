@@ -24,19 +24,20 @@ class Action(str, Enum):
 start_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="Запуск 🚀", callback_data='запуск'),
-            InlineKeyboardButton(text="Помощь ❓", callback_data=MyCallback(foo='помощь').pack()),
-            InlineKeyboardButton(text="Поиск авиабилетов 🔍", callback_data=MyCallback(foo='поиск').pack()),
+            InlineKeyboardButton(text="Поиск авиабилетов 🔍", callback_data=MyCallback(foo='search').pack()),
         ],
         [
-            InlineKeyboardButton(text="Избранные рейсы 💼", callback_data='избранные'),
-            InlineKeyboardButton(text="Добавить рейс ➕", callback_data='добавить'),
-            InlineKeyboardButton(text="Удалить рейс ❌", callback_data='удалить'),
+            InlineKeyboardButton(text="Избранные рейсы 💼", callback_data=MyCallback(foo='favorites').pack()),
+            InlineKeyboardButton(text="Добавить рейс ➕", callback_data=MyCallback(foo='track').pack()),
+            InlineKeyboardButton(text="Удалить рейс ❌", callback_data=MyCallback(foo='untrack').pack()),
         ],
         [
-            InlineKeyboardButton(text="Уведомления 📢", callback_data='уведомления'),
-            InlineKeyboardButton(text="Настройки ⚙️", callback_data='настройки'),
-            InlineKeyboardButton(text="О нас ℹ️", callback_data='о нас'),
+            InlineKeyboardButton(text="Уведомления 📢", callback_data=MyCallback(foo='notifications').pack()),
+            InlineKeyboardButton(text="Настройки ⚙️", callback_data=MyCallback(foo='settings').pack()),
+            InlineKeyboardButton(text="О нас ℹ️", callback_data=MyCallback(foo='about').pack()),
         ],
+        [
+            InlineKeyboardButton(text="Помощь ❓", callback_data=MyCallback(foo='help').pack()),
+        ]
     ],
 )
