@@ -38,6 +38,7 @@ start_kb = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton(text="Помощь ❓", callback_data=MyCallback(foo='help').pack()),
-        ]
+        ],
     ],
 )
+
