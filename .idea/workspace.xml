@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: added better structure of the bot">
+    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: added feature of the return-way or one-way ticket">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/arrival/arrival_private.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/arrival/arrival_private.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/depart/depart_private.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/depart/depart_private.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyboards/reply.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards/reply.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722690007507</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat 36594086: added feature of the return-way or one-way ticket">
+      <option name="closed" value="true" />
+      <created>1722694331770</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722694331770</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -194,6 +198,7 @@
     <MESSAGE value="feat 36594086: added Finite State Machine" />
     <MESSAGE value="feat 36594086: added api to get airports" />
     <MESSAGE value="feat 36594086: added better structure of the bot" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: added better structure of the bot" />
+    <MESSAGE value="feat 36594086: added feature of the return-way or one-way ticket" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: added feature of the return-way or one-way ticket" />
   </component>
 </project>

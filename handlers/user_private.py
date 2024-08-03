@@ -4,12 +4,11 @@ from filters.chat_types import ChatTypeFilter
 from common.replies_texts import ABOUT_BOT, GREETING, HELP
 from keyboards import reply
 from keyboards.reply import MyCallback
-from handlers.arrival.arrival_private import my_arrival_private
-from handlers.depart.depart_private import my_depart_private
+from handlers.flight_handlers import my_flight_router
 
 my_user_private = Router()
 my_user_private.message.filter(ChatTypeFilter(['private']))
-my_user_private.include_routers(my_arrival_private, my_depart_private)
+my_user_private.include_routers(my_flight_router)
 
 
 @my_user_private.message(CommandStart())
