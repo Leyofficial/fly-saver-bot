@@ -70,8 +70,19 @@ async def select_type_trip(query: types.CallbackQuery, callback_data: MyCallback
     await query.message.answer(response_text)
 
     if trip_type in ['one_way', 'return_way']:
+        await query.message.answer("Сколько человек будет путешествовать? (введите число)")
+        await state.set_state(AddFlight.waiting_for_adults)
+
+
+@my_flight_router.message(StateFilter(AddFlight.waiting_for_adults))
+async def handle_adults(message: types.Message, state: FSMContext):
+    try:
+        answer = int(message.text)
+        await state.update_data(adults=answer)
         await state.set_state(AddFlight.departure_date)
-        await query.message.answer("Введите дату отправления (в формате ГГГГ-ММ-ДД):")
+        await message.answer("Введите дату отправления (в формате ГГГГ-ММ-ДД):")
+    except ValueError:
+        await message.answer("Пожалуйста, введите корректное число.")
 
 
 @my_flight_router.message(StateFilter(AddFlight.departure_date))
@@ -109,4 +120,3 @@ async def enter_arrival_date(message: types.Message, state: FSMContext):
         reply_markup=reply.start_kb, resize_keyboard=True
     )
     await state.clear()
-
