@@ -11,6 +11,7 @@ class AddFlight(StatesGroup):
     waiting_for_city = State()
     arrival = State()
     waiting_for_arrival_city = State()
+    type_trip = State()
     departure_date = State()
     arrival_date = State()
 

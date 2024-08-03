@@ -2,7 +2,6 @@ from enum import Enum
 
 from aiogram.filters.callback_data import CallbackData
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 
 class MyCallback(CallbackData, prefix="my"):
@@ -40,6 +39,16 @@ start_kb = InlineKeyboardMarkup(
             InlineKeyboardButton(text="Помощь ❓", callback_data=MyCallback(foo='help').pack()),
         ],
     ],
+)
+
+
+type_trip = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Возвратная ✈️🔄", callback_data=MyCallback(foo='return_way').pack()),
+            InlineKeyboardButton(text="В одну сторону ✈️", callback_data=MyCallback(foo='one_way').pack()),
+        ],
+    ]
 )
 
 
