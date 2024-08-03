@@ -42,3 +42,14 @@ start_kb = InlineKeyboardMarkup(
     ],
 )
 
+
+def get_departures_city(cities):
+    keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[[
+            InlineKeyboardButton(
+                text=item['presentation']['suggestionTitle'],
+                callback_data=MyCallback(foo=item['presentation']['suggestionTitle']).pack()
+            )] for item in cities
+        ]
+    )
+    return keyboard

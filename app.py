@@ -5,14 +5,18 @@ import asyncio
 from handlers.user_private import my_user_private
 from handlers.chat_procedure import my_chat_procedure
 from handlers.group_chat import my_group_chat
+from handlers.user_private import my_user_private
 from common.bot_cmds_list import private
+from middleware.db import CounterMiddleware
 
 load_dotenv(find_dotenv())
+
 # ALLOWED_UPDATES = ['message', 'edited_message', 'inline_buttons']
 
 dp = Dispatcher()
 bot = Bot(token=getenv('TOKEN'))
 
+my_user_private.message.middleware(CounterMiddleware())
 dp.include_routers(my_user_private, my_group_chat, my_chat_procedure)
 
 
