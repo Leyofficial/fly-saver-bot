@@ -6,6 +6,7 @@ from common.common import AddFlight, handle_city_selection
 from filters.chat_types import ChatTypeFilter
 from keyboards import reply
 from keyboards.reply import MyCallback
+from requests_to_api.get_flight_info import get_summary_results
 
 my_flight_router = Router()
 my_flight_router.message.filter(ChatTypeFilter(['private']))
@@ -29,9 +30,9 @@ async def handle_search_text(message: types.Message, state: FSMContext):
 
 @my_flight_router.callback_query(StateFilter(AddFlight.departure), MyCallback.filter())
 async def select_departure_city(query: types.CallbackQuery, callback_data: MyCallback, state: FSMContext):
-    selected_city = callback_data.foo
-    await state.update_data(departure=selected_city)
-    await query.message.answer(f"Вы выбрали город отправления: {selected_city}\nКуда вы хотите полететь?")
+    fromId = callback_data.foo
+    await state.update_data(fromIdCode=fromId)
+    await query.message.answer(f"Куда вы хотите полететь?")
     await state.set_state(AddFlight.arrival)
 
 
@@ -44,11 +45,8 @@ async def handle_arrival_city(message: types.Message, state: FSMContext):
 
 @my_flight_router.callback_query(StateFilter(AddFlight.waiting_for_arrival_city), MyCallback.filter())
 async def select_arrival_city(query: types.CallbackQuery, callback_data: MyCallback, state: FSMContext):
-    selected_city = callback_data.foo
-    await state.update_data(arrival=selected_city)
-    await query.message.answer(
-        f"Вы выбрали город назначения: {selected_city}"
-    )
+    toId = callback_data.foo
+    await state.update_data(toIdCode=toId)
     await query.message.answer(
         "Выберите тип вашей поездки:",
         reply_markup=reply.type_trip
@@ -87,22 +85,19 @@ async def handle_adults(message: types.Message, state: FSMContext):
 
 @my_flight_router.message(StateFilter(AddFlight.departure_date))
 async def enter_departure_date(message: types.Message, state: FSMContext):
+    await state.update_data(departure_date=message.text)
     data = await state.get_data()
     trip_type = data.get('trip_type')
-
-    await state.update_data(departure_date=message.text)
 
     if trip_type == 'return_way':
         await state.set_state(AddFlight.arrival_date)
         await message.answer("Введите дату возвращения (в формате ГГГГ-ММ-ДД):")
     else:
-        await message.answer(
-            f"Вы ввели следующие данные:\n"
-            f"Город отправления: {data['departure']}\n"
-            f"Пункт назначения: {data['arrival']}\n"
-            f"Дата отправления: {message.text}",
-            reply_markup=reply.start_kb, resize_keyboard=True
-        )
+        await message.answer("🛫 Запрос отправлен! Мы ищем рейсы для вас. Пожалуйста, подождите немного. ⌛")
+        if data:
+            res = get_summary_results(data)
+            if res and res.get('status'):
+                await message.answer("Success!")
         await state.clear()
 
 
@@ -110,13 +105,11 @@ async def enter_departure_date(message: types.Message, state: FSMContext):
 async def enter_arrival_date(message: types.Message, state: FSMContext):
     await state.update_data(arrival_date=message.text)
     data = await state.get_data()
-
-    await message.answer(
-        f"Вы ввели следующие данные:\n"
-        f"Город отправления: {data['departure']}\n"
-        f"Пункт назначения: {data['arrival']}\n"
-        f"Дата отправления: {data['departure_date']}\n"
-        f"Дата возвращения: {message.text}",
-        reply_markup=reply.start_kb, resize_keyboard=True
-    )
+    await message.answer("🛫 Запрос отправлен! Мы ищем рейсы для вас. Пожалуйста, подождите немного. ⌛")
+    if data:
+        res = get_summary_results(data)
+        if res and res.get('status'):
+            await message.answer("Success!")
+        else:
+            await message.answer(res.get('message', 'An error occurred'))
     await state.clear()

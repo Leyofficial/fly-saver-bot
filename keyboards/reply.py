@@ -57,7 +57,7 @@ def get_departures_city(cities):
         inline_keyboard=[[
             InlineKeyboardButton(
                 text=item['presentation']['suggestionTitle'] + ' ' + item['presentation']['subtitle'],
-                callback_data=MyCallback(foo=item['presentation']['title']).pack()
+                callback_data=MyCallback(foo=item['navigation']['relevantFlightParams']['skyId']).pack()
             )] for item in cities
         ]
     )

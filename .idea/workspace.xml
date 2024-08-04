@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: added feature of the return-way or one-way ticket">
+    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: fixed correct query request">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/flight_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/flight_handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboards/reply.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards/reply.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requests_to_api/get_airports_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/requests_to_api/get_airports_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requests_to_api/get_flight_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/requests_to_api/get_flight_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,18 +51,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.app.executor": "Run",
-    "Python.app.py.executor": "Run",
-    "Python.auto-complete.executor": "Run",
-    "Python.get_airports.executor": "Run",
-    "Python.skyscanner-api.executor": "Run",
-    "Python.user_private.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "36594086"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.auto-complete.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_airports.executor&quot;: &quot;Run&quot;,
+    &quot;Python.skyscanner-api.executor&quot;: &quot;Run&quot;,
+    &quot;Python.user_private.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;36594086&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/handlers" />
@@ -173,7 +177,39 @@
       <option name="project" value="LOCAL" />
       <updated>1722694331770</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat 36594086: refactored a files to one called flight_handlers.py">
+      <option name="closed" value="true" />
+      <created>1722726630366</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722726630366</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat 36594086: added question to get adults in flight">
+      <option name="closed" value="true" />
+      <created>1722727760525</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722727760525</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat 36594086: fixed a bug with other countries airport">
+      <option name="closed" value="true" />
+      <created>1722728810221</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1722728810221</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat 36594086: fixed correct query request">
+      <option name="closed" value="true" />
+      <created>1722729874561</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722729874561</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -199,6 +235,10 @@
     <MESSAGE value="feat 36594086: added api to get airports" />
     <MESSAGE value="feat 36594086: added better structure of the bot" />
     <MESSAGE value="feat 36594086: added feature of the return-way or one-way ticket" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: added feature of the return-way or one-way ticket" />
+    <MESSAGE value="feat 36594086: refactored a files to one called flight_handlers.py" />
+    <MESSAGE value="feat 36594086: added question to get adults in flight" />
+    <MESSAGE value="feat 36594086: fixed a bug with other countries airport" />
+    <MESSAGE value="feat 36594086: fixed correct query request" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: fixed correct query request" />
   </component>
 </project>

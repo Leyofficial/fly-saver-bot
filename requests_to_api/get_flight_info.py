@@ -1,6 +1,5 @@
 import requests
-
-from requests_to_api.get_airports_info import get_all_airports
+from requests_to_api.get_airports_info import get_all_airports, get_airport_id
 
 
 def get_flight_one_way(data):
@@ -55,21 +54,21 @@ def get_flight_roundtrip(data):
 
 
 def get_summary_results(data):
-    departure, arrival, departure_date, arrival_date, trip_type, adults = data
-    fromId = get_all_airports(departure)
-    toId = get_all_airports(arrival)
-    departDate = departure_date
-    returnDate = arrival_date
+    fromId = get_airport_id(data['fromIdCode'])
+    toId = get_airport_id(data['toIdCode'])
+    departDate = data['departure_date']
+    returnDate = data.get('arrival_date')
+    adults = data['adults']
+    trip_type = data['trip_type']
 
     try:
         if trip_type == 'one_way':
             result = get_flight_one_way([fromId, toId, departDate, adults])
-        elif trip_type == 'return_way':
+        elif trip_type == 'round_trip':
             result = get_flight_roundtrip([fromId, toId, departDate, returnDate, adults])
         else:
             raise ValueError("Invalid trip type")
 
-        print(result)
         return result
     except requests.RequestException as e:
         print(f"An error occurred: {e}")
