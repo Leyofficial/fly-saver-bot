@@ -5,6 +5,7 @@ from common.replies_texts import ABOUT_BOT, GREETING, HELP
 from keyboards import reply
 from keyboards.reply import MyCallback
 from handlers.flight_handlers import my_flight_router
+from requests_to_api.get_server_status import check_server_status
 
 my_user_private = Router()
 my_user_private.message.filter(ChatTypeFilter(['private']))
@@ -13,7 +14,11 @@ my_user_private.include_routers(my_flight_router)
 
 @my_user_private.message(CommandStart())
 async def start_cmd(message: types.Message):
-    await message.answer(GREETING, reply_markup=reply.start_kb)
+    res = check_server_status()
+    if res.get('status'):
+        await message.answer(GREETING, reply_markup=reply.start_kb)
+    else:
+        await message.answer("❌ Произошла ошибка на сервера. Пожалуйста, попробуйте позже. /start")
 
 
 @my_user_private.callback_query(MyCallback.filter(F.foo == "favorites"))
