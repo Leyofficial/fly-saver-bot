@@ -1,5 +1,5 @@
 import requests
-from requests_to_api.get_airports_info import get_all_airports, get_airport_id
+from requests_to_api.get_airports_info import get_airport_id
 
 
 def get_flight_one_way(data):
@@ -15,7 +15,7 @@ def get_flight_one_way(data):
     }
 
     headers = {
-        "x-rapidapi-key": "1965246244msh0797ea4cda2a707p1482eajsn816d9c9d674a",
+        "x-rapidapi-key": "e6fe1a3f63mshd0b9734cef95d2bp13a52bjsn7386479177ed",
         "x-rapidapi-host": "skyscanner80.p.rapidapi.com"
     }
 
@@ -41,7 +41,7 @@ def get_flight_roundtrip(data):
     }
 
     headers = {
-        "x-rapidapi-key": "1965246244msh0797ea4cda2a707p1482eajsn816d9c9d674a",
+        "x-rapidapi-key": "e6fe1a3f63mshd0b9734cef95d2bp13a52bjsn7386479177ed",
         "x-rapidapi-host": "skyscanner80.p.rapidapi.com"
     }
 
@@ -73,3 +73,23 @@ def get_summary_results(data):
     except requests.RequestException as e:
         print(f"An error occurred: {e}")
         return None
+
+
+def get_flight_detail(id: str, token: str):
+    url = "https://skyscanner80.p.rapidapi.com/api/v1/flights/detail"
+
+    querystring = {"itineraryId": id,
+                   "token": token,
+                   }
+
+    headers = {
+        "x-rapidapi-key": "e6fe1a3f63mshd0b9734cef95d2bp13a52bjsn7386479177ed",
+        "x-rapidapi-host": "skyscanner80.p.rapidapi.com"
+    }
+
+    response = requests.get(url, headers=headers, params=querystring)
+
+    if response.status_code == 200:
+        return response.json()
+    else:
+        response.raise_for_status()

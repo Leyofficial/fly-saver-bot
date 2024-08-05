@@ -3,21 +3,12 @@ from enum import Enum
 from aiogram.filters.callback_data import CallbackData
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+from utils.date_format import format_datetime
+
 
 class MyCallback(CallbackData, prefix="my"):
     foo: str
 
-
-class Action(str, Enum):
-    start = "запуск"
-    help = "помощь"
-    search = "поиск"
-    favorite = "избранные"
-    add = "добавить"
-    delete = "удалить"
-    notification = "уведомления"
-    settings = "настройки"
-    about = "о нас"
 
 
 start_kb = InlineKeyboardMarkup(
@@ -41,7 +32,6 @@ start_kb = InlineKeyboardMarkup(
     ],
 )
 
-
 type_trip = InlineKeyboardMarkup(
     inline_keyboard=[
         [
@@ -61,4 +51,27 @@ def get_departures_city(cities):
             )] for item in cities
         ]
     )
+    return keyboard
+
+
+def get_summary_data_kb(data):
+    buttons = []
+
+    for item in data['itineraries'][:10]:
+        company = item['legs'][0]['carriers']['marketing'][0]['name']
+        duration = str(item['legs'][0]['durationInMinutes']) + ' min'
+        departure_time = format_datetime(item['legs'][0]['departure'])
+        arrival_time = format_datetime(item['legs'][0]['arrival'])
+        price = item['price']['formatted']
+
+        text = f"🛫{company} dep {departure_time} arr {arrival_time} 🕒 {duration} 💵 {price}\n"
+
+        button = InlineKeyboardButton(
+            text=text,
+            callback_data=MyCallback(foo=text).pack()
+        )
+        buttons.append([button])
+
+    keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
+
     return keyboard

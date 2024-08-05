@@ -22,12 +22,12 @@ async def handle_city_selection(message: types.Message, state: FSMContext, next_
     user_city = message.text
     res = get_all_airports(user_city)
 
-    if res['status'] and len(res['airports']) > 0:
+    if res and res.get('status') and len(res['airports']) > 0:
         await message.answer(
             prompt,
             reply_markup=get_departures_city(res['airports'])
         )
         await state.set_state(next_state)
     else:
-        await message.answer("Извините, не удалось найти аэропорты для данного города.")
-        await state.set_state(state.state)
+        await message.answer("❌ Извините, не удалось найти аэропорты для данного города.")
+        await message.answer("Введите аэропорт еще раз:")

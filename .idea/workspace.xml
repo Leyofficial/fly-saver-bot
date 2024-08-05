@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: fixed correct query request">
+    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: collected all data from user inputs and collected flights from API">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/flight_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/flight_handlers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/keyboards/reply.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards/reply.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requests_to_api/get_airports_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/requests_to_api/get_airports_info.py" afterDir="false" />
@@ -209,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722729874561</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat 36594086: collected all data from user inputs and collected flights from API">
+      <option name="closed" value="true" />
+      <created>1722799474716</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722799474716</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -239,6 +248,7 @@
     <MESSAGE value="feat 36594086: added question to get adults in flight" />
     <MESSAGE value="feat 36594086: fixed a bug with other countries airport" />
     <MESSAGE value="feat 36594086: fixed correct query request" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: fixed correct query request" />
+    <MESSAGE value="feat 36594086: collected all data from user inputs and collected flights from API" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: collected all data from user inputs and collected flights from API" />
   </component>
 </project>
