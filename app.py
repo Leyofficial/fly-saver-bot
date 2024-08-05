@@ -6,7 +6,7 @@ from handlers.user_private import my_user_private
 from handlers.chat_procedure import my_chat_procedure
 from handlers.group_chat import my_group_chat
 from handlers.user_private import my_user_private
-from common.bot_cmds_list import private
+from helpers.bot_cmds_list import private
 from middleware.db import CounterMiddleware
 
 load_dotenv(find_dotenv())

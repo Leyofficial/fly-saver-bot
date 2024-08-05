@@ -64,7 +64,7 @@ def get_summary_results(data):
     try:
         if trip_type == 'one_way':
             result = get_flight_one_way([fromId, toId, departDate, adults])
-        elif trip_type == 'round_trip':
+        elif trip_type == 'return_way':
             result = get_flight_roundtrip([fromId, toId, departDate, returnDate, adults])
         else:
             raise ValueError("Invalid trip type")

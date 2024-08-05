@@ -29,4 +29,5 @@ def get_airport_id(code):
 
     response = requests.get(url, headers=headers, params=querystring)
     res = response.json()
-    return res['data'][0]['id']
+    if res.get('status') and res['data']:
+        return res['data'][0]['id']

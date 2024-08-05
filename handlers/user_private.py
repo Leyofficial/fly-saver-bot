@@ -1,7 +1,7 @@
 from aiogram import Router, types, F
 from aiogram.filters import CommandStart
 from filters.chat_types import ChatTypeFilter
-from common.replies_texts import ABOUT_BOT, GREETING, HELP
+from helpers.replies_texts import ABOUT_BOT, GREETING, HELP
 from keyboards import reply
 from keyboards.reply import MyCallback
 from handlers.flight_handlers import my_flight_router

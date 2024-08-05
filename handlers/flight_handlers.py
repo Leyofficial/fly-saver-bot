@@ -2,14 +2,25 @@ from aiogram import Router, types, F
 from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 
-from common.common import AddFlight, handle_city_selection
+from helpers.common import AddFlight, handle_city_selection, fetch_flight_data, handle_flight_date, extract_flight_info
 from filters.chat_types import ChatTypeFilter
 from keyboards import reply
-from keyboards.reply import MyCallback, get_summary_data_kb
-from requests_to_api.get_flight_info import get_summary_results
+from keyboards.reply import MyCallback
 
 my_flight_router = Router()
 my_flight_router.message.filter(ChatTypeFilter(['private']))
+
+FLIGHT_DETAILS_TEMPLATE = (
+    "🛫 **Авиакомпания:** {company}\n"
+    "📍 **Откуда:** {departure_city}\n"
+    "📍 **Куда:** {arrival_city}\n"
+    "🕒 **Продолжительность:** {duration}\n"
+    "📅 **Дата отправления:** {departure_date}\n"
+    "📅 **Дата возращения:** {return_date}\n"
+    "⏰ **Время отправления:** {departure_time}\n"
+    "⏰ **Время прибытия:** {arrival_time}\n"
+    "💵 **Цена:** {price}\n"
+)
 
 
 @my_flight_router.callback_query(StateFilter(None), MyCallback.filter(F.foo == "search"))
@@ -83,32 +94,6 @@ async def handle_adults(message: types.Message, state: FSMContext):
         await message.answer("❌ Пожалуйста, введите корректное число.")
 
 
-async def handle_flight_date(message: types.Message, state: FSMContext, date_type: str):
-    await state.update_data(**{date_type: message.text})
-    data = await state.get_data()
-
-    if date_type == 'departure_date' and data.get('trip_type') == 'return_way':
-        await state.set_state(AddFlight.arrival_date)
-        await message.answer("Введите дату возвращения (в формате ГГГГ-ММ-ДД):")
-    else:
-        await message.answer("🛫 Запрос отправлен! Мы ищем рейсы для вас. Пожалуйста, подождите немного. ⌛")
-        if data:
-            res = get_summary_results(data)
-            if res and res.get('status') and res.get('data'):
-                flight_count = res['data']['context']['totalResults']
-                await message.answer(f"✅ Найдено рейсов: {flight_count} ✈️")
-                await message.answer("Вот и они:", reply_markup=get_summary_data_kb(res['data']))
-            else:
-                await message.answer('❌ Произошла ошибка. Пожалуйста, попробуйте еще раз позже. /start')
-        await state.clear()
-
-
-@my_flight_router.callback_query(MyCallback.filter())
-async def handle_selected_flight(query: types.CallbackQuery, callback_data: MyCallback):
-    text = callback_data.foo
-    await query.message.answer(text)
-
-
 @my_flight_router.message(StateFilter(AddFlight.departure_date))
 async def enter_departure_date(message: types.Message, state: FSMContext):
     await handle_flight_date(message, state, 'departure_date')
@@ -117,3 +102,22 @@ async def enter_departure_date(message: types.Message, state: FSMContext):
 @my_flight_router.message(StateFilter(AddFlight.arrival_date))
 async def enter_arrival_date(message: types.Message, state: FSMContext):
     await handle_flight_date(message, state, 'arrival_date')
+
+
+@my_flight_router.callback_query(MyCallback.filter())
+async def handle_selected_flight(query: types.CallbackQuery, callback_data: MyCallback, state: FSMContext):
+    flight_id = callback_data.foo
+    data = await state.get_data()
+    flight_data = await fetch_flight_data(flight_id, data)
+
+    if flight_data:
+        flight_info = extract_flight_info(flight_data)
+        destination_img_url = data['flights']['destinationImageUrl']
+
+        if destination_img_url:
+            await query.message.answer_photo(photo=destination_img_url, caption="Детали рейса:")
+
+        details_text = FLIGHT_DETAILS_TEMPLATE.format(**flight_info)
+        await query.message.answer(details_text, parse_mode='Markdown')
+    else:
+        await query.message.answer("❌ Данные о рейсе не найдены.")

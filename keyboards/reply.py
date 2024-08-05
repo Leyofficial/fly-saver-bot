@@ -63,12 +63,12 @@ def get_summary_data_kb(data):
         departure_time = format_datetime(item['legs'][0]['departure'])
         arrival_time = format_datetime(item['legs'][0]['arrival'])
         price = item['price']['formatted']
-
+        id = item['legs'][0]['segments'][0]['flightNumber']
         text = f"🛫{company} dep {departure_time} arr {arrival_time} 🕒 {duration} 💵 {price}\n"
 
         button = InlineKeyboardButton(
             text=text,
-            callback_data=MyCallback(foo=text).pack()
+            callback_data=MyCallback(foo=id).pack()
         )
         buttons.append([button])
 
