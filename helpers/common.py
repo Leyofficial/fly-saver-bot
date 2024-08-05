@@ -47,6 +47,17 @@ async def fetch_flight_data(flight_id: str, res: Dict[str, any]):
     return None
 
 
+async def send_summary_to_user(message, state, data):
+    res = get_summary_results(data)
+    if res and res.get('status') and res.get('data'):
+        flight_count = res['data']['context']['totalResults']
+        await message.answer(f"✅ Найдено рейсов: {flight_count} ✈️")
+        await message.answer("Вот и они:", reply_markup=get_summary_data_kb(res['data']))
+        await state.update_data(flights=res['data'])
+    else:
+        await message.answer('❌ Произошла ошибка. Пожалуйста, попробуйте еще раз позже. /start')
+
+
 async def handle_flight_date(message: types.Message, state: FSMContext, date_type: str):
     await state.update_data(**{date_type: message.text})
     data = await state.get_data()
@@ -57,14 +68,7 @@ async def handle_flight_date(message: types.Message, state: FSMContext, date_typ
     else:
         await message.answer("🛫 Запрос отправлен! Мы ищем рейсы для вас. Пожалуйста, подождите немного. ⌛")
         if data:
-            res = get_summary_results(data)
-            if res and res.get('status') and res.get('data'):
-                flight_count = res['data']['context']['totalResults']
-                await message.answer(f"✅ Найдено рейсов: {flight_count} ✈️")
-                await message.answer("Вот и они:", reply_markup=get_summary_data_kb(res['data']))
-                await state.update_data(flights=res['data'])
-            else:
-                await message.answer('❌ Произошла ошибка. Пожалуйста, попробуйте еще раз позже. /start')
+            await send_summary_to_user(message, state, data)
 
 
 def extract_flight_info(flight_data: Dict[str, Any]) -> Dict[str, str]:
@@ -82,7 +86,7 @@ def extract_flight_info(flight_data: Dict[str, Any]) -> Dict[str, str]:
     return_date = "В одну сторону."
     if len(flight_data['legs']) > 1:
         return_leg = flight_data['legs'][1]
-        return_date = {format_date(return_leg['departure'])}
+        return_date = format_date(return_leg['departure'])
 
     return {
         'company': company,

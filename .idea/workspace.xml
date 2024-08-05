@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: added handle errors if server status is false">
+    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: summary data on the end">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/flight_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/flight_handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/user_private.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/user_private.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/replies_texts.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/replies_texts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/keyboards/reply.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards/reply.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requests_to_api/get_airports_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/requests_to_api/get_airports_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requests_to_api/get_flight_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/requests_to_api/get_flight_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/date_format.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/date_format.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722861071334</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat 36594086: summary data on the end">
+      <option name="closed" value="true" />
+      <created>1722866396992</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1722866396992</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -277,6 +284,7 @@
     <MESSAGE value="feat 36594086: collected all data and sent to the api to get summary data" />
     <MESSAGE value="feat 36594086: added util date_format" />
     <MESSAGE value="feat 36594086: added handle errors if server status is false" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: added handle errors if server status is false" />
+    <MESSAGE value="feat 36594086: summary data on the end" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: summary data on the end" />
   </component>
 </project>

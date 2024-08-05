@@ -16,7 +16,7 @@ my_user_private.include_routers(my_flight_router)
 async def start_cmd(message: types.Message):
     res = check_server_status()
     if res.get('status'):
-        await message.answer(GREETING, reply_markup=reply.start_kb)
+        await message.answer(GREETING, reply_markup=reply.start_kb, parse_mode='Markdown')
     else:
         await message.answer("❌ Произошла ошибка на сервера. Пожалуйста, попробуйте позже. /start")
 

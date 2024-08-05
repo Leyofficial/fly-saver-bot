@@ -10,7 +10,6 @@ class MyCallback(CallbackData, prefix="my"):
     foo: str
 
 
-
 start_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
@@ -41,6 +40,14 @@ type_trip = InlineKeyboardMarkup(
     ]
 )
 
+
+finished_search = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Новый поиск 🔍", callback_data=MyCallback(foo="search").pack())
+        ]
+    ]
+)
 
 def get_departures_city(cities):
     keyboard = InlineKeyboardMarkup(
@@ -74,4 +81,24 @@ def get_summary_data_kb(data):
 
     keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
 
+    return keyboard
+
+
+def back_or_finish_kb():
+    keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(
+                    text="🔙 Назад",
+                    callback_data=MyCallback(foo="back").pack()
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    text="✅ Завершить поиск",
+                    callback_data=MyCallback(foo="finish").pack()
+                )
+            ]
+        ]
+    )
     return keyboard

@@ -1,11 +1,14 @@
 from aiogram import Router, types, F
-from aiogram.filters import StateFilter
+from aiogram.filters import StateFilter, or_f
 from aiogram.fsm.context import FSMContext
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from helpers.common import AddFlight, handle_city_selection, fetch_flight_data, handle_flight_date, extract_flight_info
+from helpers.common import AddFlight, handle_city_selection, fetch_flight_data, handle_flight_date, extract_flight_info, \
+    send_summary_to_user
 from filters.chat_types import ChatTypeFilter
+from helpers.replies_texts import FINISHED_SEARCH
 from keyboards import reply
-from keyboards.reply import MyCallback
+from keyboards.reply import MyCallback, back_or_finish_kb, finished_search
 
 my_flight_router = Router()
 my_flight_router.message.filter(ChatTypeFilter(['private']))
@@ -104,6 +107,17 @@ async def enter_arrival_date(message: types.Message, state: FSMContext):
     await handle_flight_date(message, state, 'arrival_date')
 
 
+@my_flight_router.callback_query(or_f(MyCallback.filter(F.foo == "back"), MyCallback.filter(F.foo == "finish")))
+async def handle_selected_on_flight(query: types.CallbackQuery, callback_data: MyCallback, state: FSMContext):
+    selected = callback_data.foo
+    data = await state.get_data()
+    if selected == 'back':
+        await send_summary_to_user(query.message, state, data)
+    elif selected == 'finish':
+        await state.clear()
+        await query.message.answer(FINISHED_SEARCH, reply_markup=finished_search, parse_mode='Markdown')
+
+
 @my_flight_router.callback_query(MyCallback.filter())
 async def handle_selected_flight(query: types.CallbackQuery, callback_data: MyCallback, state: FSMContext):
     flight_id = callback_data.foo
@@ -118,6 +132,6 @@ async def handle_selected_flight(query: types.CallbackQuery, callback_data: MyCa
             await query.message.answer_photo(photo=destination_img_url, caption="Детали рейса:")
 
         details_text = FLIGHT_DETAILS_TEMPLATE.format(**flight_info)
-        await query.message.answer(details_text, parse_mode='Markdown')
+        await query.message.answer(details_text, parse_mode='Markdown', reply_markup=back_or_finish_kb())
     else:
         await query.message.answer("❌ Данные о рейсе не найдены.")
