@@ -51,9 +51,19 @@ async def send_summary_to_user(message, state, data):
     res = get_summary_results(data)
     if res and res.get('status') and res.get('data'):
         flight_count = res['data']['context']['totalResults']
-        await message.answer(f"✅ Найдено рейсов: {flight_count} ✈️")
-        await message.answer("Вот и они:", reply_markup=get_summary_data_kb(res['data']))
-        await state.update_data(flights=res['data'])
+        if flight_count > 0:
+            await message.answer(
+                "✅✈️ Найденные рейсы:\n\n"
+                "Вот и они! Выберите интересующий вас рейс из списка ниже.",
+                reply_markup=get_summary_data_kb(res['data'])
+            )
+            await state.update_data(flights=res['data'])
+        else:
+            await message.answer(
+                "❌ К сожалению, рейсов не найдено.\n\n"
+                "Попробуйте изменить параметры поиска и повторить попытку."
+            )
+
     else:
         await message.answer('❌ Произошла ошибка. Пожалуйста, попробуйте еще раз позже. /start')
 

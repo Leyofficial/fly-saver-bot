@@ -1,5 +1,7 @@
 from aiogram import Router, types, F
 from aiogram.filters import CommandStart
+from aiogram.fsm.context import FSMContext
+
 from filters.chat_types import ChatTypeFilter
 from helpers.replies_texts import ABOUT_BOT, GREETING, HELP
 from keyboards import reply
@@ -13,9 +15,10 @@ my_user_private.include_routers(my_flight_router)
 
 
 @my_user_private.message(CommandStart())
-async def start_cmd(message: types.Message):
+async def start_cmd(message: types.Message, state: FSMContext):
     res = check_server_status()
     if res.get('status'):
+        await state.clear()
         await message.answer(GREETING, reply_markup=reply.start_kb, parse_mode='Markdown')
     else:
         await message.answer("❌ Произошла ошибка на сервера. Пожалуйста, попробуйте позже. /start")
