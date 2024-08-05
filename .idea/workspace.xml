@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: added buttons (Back and Finish) on the end of the summary flights">
+    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: handle get summary from user and cleaning state when /start">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/user_private.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/user_private.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/flight_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/flight_handlers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helpers/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/common.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -255,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722868483499</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feat 36594086: handle get summary from user and cleaning state when /start">
+      <option name="closed" value="true" />
+      <created>1722869180342</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722869180342</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -291,6 +299,7 @@
     <MESSAGE value="feat 36594086: added handle errors if server status is false" />
     <MESSAGE value="feat 36594086: summary data on the end" />
     <MESSAGE value="feat 36594086: added buttons (Back and Finish) on the end of the summary flights" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: added buttons (Back and Finish) on the end of the summary flights" />
+    <MESSAGE value="feat 36594086: handle get summary from user and cleaning state when /start" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: handle get summary from user and cleaning state when /start" />
   </component>
 </project>

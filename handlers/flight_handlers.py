@@ -1,10 +1,8 @@
 from aiogram import Router, types, F
 from aiogram.filters import StateFilter, or_f
 from aiogram.fsm.context import FSMContext
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from helpers.common import AddFlight, handle_city_selection, fetch_flight_data, handle_flight_date, extract_flight_info, \
-    send_summary_to_user
+from helpers.common import AddFlight, handle_city_selection, fetch_flight_data, handle_flight_date, extract_flight_info, get_result_info
 from filters.chat_types import ChatTypeFilter
 from helpers.replies_texts import FINISHED_SEARCH
 from keyboards import reply
@@ -112,7 +110,8 @@ async def handle_selected_on_flight(query: types.CallbackQuery, callback_data: M
     selected = callback_data.foo
     data = await state.get_data()
     if selected == 'back':
-        await send_summary_to_user(query.message, state, data)
+        if data.get('flights'):
+            await get_result_info(query.message, state, {"data": data['flights']})
     elif selected == 'finish':
         await state.clear()
         await query.message.answer(FINISHED_SEARCH, reply_markup=finished_search, parse_mode='Markdown')

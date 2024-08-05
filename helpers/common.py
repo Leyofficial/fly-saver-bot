@@ -47,9 +47,8 @@ async def fetch_flight_data(flight_id: str, res: Dict[str, any]):
     return None
 
 
-async def send_summary_to_user(message, state, data):
-    res = get_summary_results(data)
-    if res and res.get('status') and res.get('data'):
+async def get_result_info(message, state, res):
+    if res and res.get('data'):
         flight_count = res['data']['context']['totalResults']
         if flight_count > 0:
             await message.answer(
@@ -78,7 +77,8 @@ async def handle_flight_date(message: types.Message, state: FSMContext, date_typ
     else:
         await message.answer("🛫 Запрос отправлен! Мы ищем рейсы для вас. Пожалуйста, подождите немного. ⌛")
         if data:
-            await send_summary_to_user(message, state, data)
+            res = get_summary_results(data)
+            await get_result_info(message, state, res)
 
 
 def extract_flight_info(flight_data: Dict[str, Any]) -> Dict[str, str]:
