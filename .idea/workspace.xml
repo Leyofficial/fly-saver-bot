@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="fix 36594086: fixed a greeting text for mobile users">
+    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: added good refactoring">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helpers/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/replies_texts.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/replies_texts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/keyboards/reply.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards/reply.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/date_format.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/date_format.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722940735744</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="feat 36594086: added good refactoring">
+      <option name="closed" value="true" />
+      <created>1722941596642</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1722941596642</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -317,6 +328,7 @@
     <MESSAGE value="feat 36594086: handle get summary from user and cleaning state when /start" />
     <MESSAGE value="feat 36594086: perfect refactor to avoid send summary data on server and just get it from state" />
     <MESSAGE value="fix 36594086: fixed a greeting text for mobile users" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix 36594086: fixed a greeting text for mobile users" />
+    <MESSAGE value="feat 36594086: added good refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: added good refactoring" />
   </component>
 </project>

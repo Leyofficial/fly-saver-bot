@@ -11,6 +11,7 @@ from requests_to_api.get_flight_info import get_summary_results
 
 
 class AddFlight(StatesGroup):
+    """Состояние приложения (FSM)"""
     departure = State()
     waiting_for_city = State()
     arrival = State()
@@ -23,6 +24,7 @@ class AddFlight(StatesGroup):
 
 
 async def handle_city_selection(message: types.Message, state: FSMContext, next_state: State, prompt: str):
+    """Запрашивает данные о всех аэропортов в указанном городе."""
     user_city = message.text
     res = get_all_airports(user_city)
 
@@ -47,14 +49,21 @@ async def fetch_flight_data(flight_id: str, res: Dict[str, any]):
     return None
 
 
+def filter_flights_info(data):
+    """Сортирует данные по убыванию цены Дешевые-Дорогие билеты"""
+    res = sorted(data['itineraries'], key=lambda flight: flight['price']['raw'])
+    return {"itineraries": res}
+
+
 async def get_result_info(message, state, res):
+    """Получает результат всех рейсов которые летят с указанных пользователям аэропортов"""
     if res and res.get('data'):
         flight_count = res['data']['context']['totalResults']
         if flight_count > 0:
             await message.answer(
                 "✅✈️ Найденные рейсы:\n\n"
                 "Вот и они! Выберите интересующий вас рейс из списка ниже.",
-                reply_markup=get_summary_data_kb(res['data']),
+                reply_markup=get_summary_data_kb(filter_flights_info(res['data'])),
             )
             await state.update_data(flights=res['data'])
         else:
@@ -65,9 +74,11 @@ async def get_result_info(message, state, res):
 
     else:
         await message.answer('❌ Произошла ошибка. Пожалуйста, попробуйте еще раз позже. /start')
+        await state.clear()
 
 
 async def handle_flight_date(message: types.Message, state: FSMContext, date_type: str):
+    """Запрашивает дату возращение если пользователь выбрал что его билет return"""
     await state.update_data(**{date_type: message.text})
     data = await state.get_data()
 
@@ -82,6 +93,7 @@ async def handle_flight_date(message: types.Message, state: FSMContext, date_typ
 
 
 def handle_trip_type(trip_type: str):
+    """Проверяет тип поездки"""
     response_text = "❌ Неизвестный тип поездки."
     if trip_type == 'one_way':
         response_text = "✅ Вы выбрали билет в одну сторону ✈️."

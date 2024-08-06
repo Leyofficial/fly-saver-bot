@@ -1,5 +1,3 @@
-from enum import Enum
-
 from aiogram.filters.callback_data import CallbackData
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -40,7 +38,6 @@ type_trip = InlineKeyboardMarkup(
     ]
 )
 
-
 finished_search = InlineKeyboardMarkup(
     inline_keyboard=[
         [
@@ -48,6 +45,7 @@ finished_search = InlineKeyboardMarkup(
         ]
     ]
 )
+
 
 def get_departures_city(cities):
     keyboard = InlineKeyboardMarkup(
