@@ -2,7 +2,6 @@ from aiogram import Bot, Dispatcher, types
 from dotenv import find_dotenv, load_dotenv
 from os import getenv
 import asyncio
-from handlers.user_private import my_user_private
 from handlers.chat_procedure import my_chat_procedure
 from handlers.group_chat import my_group_chat
 from handlers.user_private import my_user_private
@@ -10,8 +9,6 @@ from helpers.bot_cmds_list import private
 from middleware.db import CounterMiddleware
 
 load_dotenv(find_dotenv())
-
-# ALLOWED_UPDATES = ['message', 'edited_message', 'inline_buttons']
 
 dp = Dispatcher()
 bot = Bot(token=getenv('TOKEN'))
