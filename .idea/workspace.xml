@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: finished first iteration with Fly Saver bot 🎉🎉🎉">
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Leyofficial&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:Leyofficial/fly-saver-bot.git&quot;,
+    &quot;accountId&quot;: &quot;95a3f32d-5424-4826-a0fc-7b06ccff853b&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2jyNQs5LS9YrUdlf2lG1aKbeZpe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.auto-complete.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_airports.executor&quot;: &quot;Run&quot;,
+    &quot;Python.skyscanner-api.executor&quot;: &quot;Run&quot;,
+    &quot;Python.user_private.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;36594086&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/handlers" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app.py" type="PythonConfigurationType" factoryName="Python">
+      <module name="fly-saver-bot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/handlers" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app.py" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-5b207ade9991-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17890.14" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="" />
+      <created>1722355344203</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722355344203</updated>
+    </task>
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1722355467102</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722355467102</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat 36594086: added basic functionality of the bot">
+      <option name="closed" value="true" />
+      <created>1722429675907</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722429675907</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat 36594086: added a replies_texts + reply buttons">
+      <option name="closed" value="true" />
+      <created>1722453504803</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722453504804</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat 36594086: added a replies inline buttons">
+      <option name="closed" value="true" />
+      <created>1722551953592</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722551953592</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat 36594086: added Finite State Machine">
+      <option name="closed" value="true" />
+      <created>1722608948489</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722608948489</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat 36594086: added api to get airports">
+      <option name="closed" value="true" />
+      <created>1722688857352</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722688857352</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat 36594086: added better structure of the bot">
+      <option name="closed" value="true" />
+      <created>1722690007507</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722690007507</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat 36594086: added feature of the return-way or one-way ticket">
+      <option name="closed" value="true" />
+      <created>1722694331770</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722694331770</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat 36594086: refactored a files to one called flight_handlers.py">
+      <option name="closed" value="true" />
+      <created>1722726630366</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722726630366</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat 36594086: added question to get adults in flight">
+      <option name="closed" value="true" />
+      <created>1722727760525</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722727760525</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat 36594086: fixed a bug with other countries airport">
+      <option name="closed" value="true" />
+      <created>1722728810221</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1722728810221</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat 36594086: fixed correct query request">
+      <option name="closed" value="true" />
+      <created>1722729874561</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722729874561</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat 36594086: collected all data from user inputs and collected flights from API">
+      <option name="closed" value="true" />
+      <created>1722799474716</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722799474716</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat 36594086: collected all data and sent to the api to get summary data">
+      <option name="closed" value="true" />
+      <created>1722860621778</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722860621778</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat 36594086: added util date_format">
+      <option name="closed" value="true" />
+      <created>1722860647542</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1722860647542</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat 36594086: added handle errors if server status is false">
+      <option name="closed" value="true" />
+      <created>1722861071334</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1722861071334</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat 36594086: summary data on the end">
+      <option name="closed" value="true" />
+      <created>1722866396992</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1722866396992</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat 36594086: added buttons (Back and Finish) on the end of the summary flights">
+      <option name="closed" value="true" />
+      <created>1722868483499</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1722868483499</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat 36594086: handle get summary from user and cleaning state when /start">
+      <option name="closed" value="true" />
+      <created>1722869180342</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722869180342</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat 36594086: perfect refactor to avoid send summary data on server and just get it from state">
+      <option name="closed" value="true" />
+      <created>1722870163427</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1722870163427</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix 36594086: fixed a greeting text for mobile users">
+      <option name="closed" value="true" />
+      <created>1722940735744</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1722940735744</updated>
+    </task>
+    <task id="LOCAL-00022" summary="feat 36594086: added good refactoring">
+      <option name="closed" value="true" />
+      <created>1722941596642</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1722941596642</updated>
+    </task>
+    <task id="LOCAL-00023" summary="feat 36594086: added filter for price ( lowest - highest ) and small refactor">
+      <option name="closed" value="true" />
+      <created>1722943296136</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1722943296136</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feat 36594086: finished first iteration with Fly Saver bot 🎉🎉🎉">
+      <option name="closed" value="true" />
+      <created>1722944270102</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1722944270102</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <MESSAGE value="feat 36594086: added basic functionality of the bot" />
+    <MESSAGE value="feat 36594086: added a replies_texts + reply buttons" />
+    <MESSAGE value="feat 36594086: added a replies inline buttons" />
+    <MESSAGE value="feat 36594086: added Finite State Machine" />
+    <MESSAGE value="feat 36594086: added api to get airports" />
+    <MESSAGE value="feat 36594086: added better structure of the bot" />
+    <MESSAGE value="feat 36594086: added feature of the return-way or one-way ticket" />
+    <MESSAGE value="feat 36594086: refactored a files to one called flight_handlers.py" />
+    <MESSAGE value="feat 36594086: added question to get adults in flight" />
+    <MESSAGE value="feat 36594086: fixed a bug with other countries airport" />
+    <MESSAGE value="feat 36594086: fixed correct query request" />
+    <MESSAGE value="feat 36594086: collected all data from user inputs and collected flights from API" />
+    <MESSAGE value="feat 36594086: collected all data and sent to the api to get summary data" />
+    <MESSAGE value="feat 36594086: added util date_format" />
+    <MESSAGE value="feat 36594086: added handle errors if server status is false" />
+    <MESSAGE value="feat 36594086: summary data on the end" />
+    <MESSAGE value="feat 36594086: added buttons (Back and Finish) on the end of the summary flights" />
+    <MESSAGE value="feat 36594086: handle get summary from user and cleaning state when /start" />
+    <MESSAGE value="feat 36594086: perfect refactor to avoid send summary data on server and just get it from state" />
+    <MESSAGE value="fix 36594086: fixed a greeting text for mobile users" />
+    <MESSAGE value="feat 36594086: added good refactoring" />
+    <MESSAGE value="feat 36594086: added filter for price ( lowest - highest ) and small refactor" />
+    <MESSAGE value="feat 36594086: finished first iteration with Fly Saver bot " />
+    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: finished first iteration with Fly Saver bot " />
+  </component>
+</project>
