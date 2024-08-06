@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: added filter for price ( lowest - highest ) and small refactor">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/flight_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/flight_handlers.py" afterDir="false" />
+    <list default="true" id="a0a130d2-4f44-4c3f-b0a5-2fd2132ff5b0" name="Changes" comment="feat 36594086: finished first iteration with Fly Saver bot 🎉🎉🎉">
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722943296136</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="feat 36594086: finished first iteration with Fly Saver bot 🎉🎉🎉">
+      <option name="closed" value="true" />
+      <created>1722944270102</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1722944270102</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -335,6 +342,7 @@
     <MESSAGE value="fix 36594086: fixed a greeting text for mobile users" />
     <MESSAGE value="feat 36594086: added good refactoring" />
     <MESSAGE value="feat 36594086: added filter for price ( lowest - highest ) and small refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: added filter for price ( lowest - highest ) and small refactor" />
+    <MESSAGE value="feat 36594086: finished first iteration with Fly Saver bot " />
+    <option name="LAST_COMMIT_MESSAGE" value="feat 36594086: finished first iteration with Fly Saver bot " />
   </component>
 </project>
