@@ -2,8 +2,8 @@ from aiogram import Router, types, F
 from aiogram.filters import StateFilter, or_f
 from aiogram.fsm.context import FSMContext
 
-from helpers.common import AddFlight, handle_city_selection, fetch_flight_data, handle_flight_date, extract_flight_info, \
-    get_result_info, handle_trip_type
+from helpers.common import AddFlight, handle_city_selection, fetch_flight_data, handle_flight_date, \
+    extract_flight_info, get_result_info, handle_trip_type
 from filters.chat_types import ChatTypeFilter
 from helpers.replies_texts import FINISHED_SEARCH, FLIGHT_DETAILS_TEMPLATE
 from keyboards import reply
