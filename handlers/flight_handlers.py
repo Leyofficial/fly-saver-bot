@@ -2,26 +2,15 @@ from aiogram import Router, types, F
 from aiogram.filters import StateFilter, or_f
 from aiogram.fsm.context import FSMContext
 
-from helpers.common import AddFlight, handle_city_selection, fetch_flight_data, handle_flight_date, extract_flight_info, get_result_info
+from helpers.common import AddFlight, handle_city_selection, fetch_flight_data, handle_flight_date, extract_flight_info, \
+    get_result_info, handle_trip_type
 from filters.chat_types import ChatTypeFilter
-from helpers.replies_texts import FINISHED_SEARCH
+from helpers.replies_texts import FINISHED_SEARCH, FLIGHT_DETAILS_TEMPLATE
 from keyboards import reply
 from keyboards.reply import MyCallback, back_or_finish_kb, finished_search
 
 my_flight_router = Router()
 my_flight_router.message.filter(ChatTypeFilter(['private']))
-
-FLIGHT_DETAILS_TEMPLATE = (
-    "🛫 **Авиакомпания:** {company}\n"
-    "📍 **Откуда:** {departure_city}\n"
-    "📍 **Куда:** {arrival_city}\n"
-    "🕒 **Продолжительность:** {duration}\n"
-    "📅 **Дата отправления:** {departure_date}\n"
-    "📅 **Дата возращения:** {return_date}\n"
-    "⏰ **Время отправления:** {departure_time}\n"
-    "⏰ **Время прибытия:** {arrival_time}\n"
-    "💵 **Цена:** {price}\n"
-)
 
 
 @my_flight_router.callback_query(StateFilter(None), MyCallback.filter(F.foo == "search"))
@@ -71,12 +60,7 @@ async def select_type_trip(query: types.CallbackQuery, callback_data: MyCallback
     trip_type = callback_data.foo
     await state.update_data(trip_type=trip_type)
 
-    response_text = "❌ Неизвестный тип поездки."
-    if trip_type == 'one_way':
-        response_text = "✅ Вы выбрали билет в одну сторону ✈️."
-    elif trip_type == 'return_way':
-        response_text = "✅ Вы выбрали возвратный билет ✈️🔄."
-
+    response_text = handle_trip_type(trip_type)
     await query.message.answer(response_text)
 
     if trip_type in ['one_way', 'return_way']:

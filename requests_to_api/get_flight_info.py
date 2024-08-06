@@ -11,7 +11,6 @@ def get_flight_one_way(data):
         "toId": toId,
         "departDate": departDate,
         "adults": adults,
-        "cabinClass": "economy"
     }
 
     headers = {
@@ -37,7 +36,6 @@ def get_flight_roundtrip(data):
         "departDate": departDate,
         "returnDate": returnDate,
         "adults": adults,
-        "cabinClass": "economy"
     }
 
     headers = {

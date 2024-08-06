@@ -54,7 +54,7 @@ async def get_result_info(message, state, res):
             await message.answer(
                 "✅✈️ Найденные рейсы:\n\n"
                 "Вот и они! Выберите интересующий вас рейс из списка ниже.",
-                reply_markup=get_summary_data_kb(res['data'])
+                reply_markup=get_summary_data_kb(res['data']),
             )
             await state.update_data(flights=res['data'])
         else:
@@ -79,6 +79,16 @@ async def handle_flight_date(message: types.Message, state: FSMContext, date_typ
         if data:
             res = get_summary_results(data)
             await get_result_info(message, state, res)
+
+
+def handle_trip_type(trip_type: str):
+    response_text = "❌ Неизвестный тип поездки."
+    if trip_type == 'one_way':
+        response_text = "✅ Вы выбрали билет в одну сторону ✈️."
+    elif trip_type == 'return_way':
+        response_text = "✅ Вы выбрали возвратный билет ✈️🔄."
+
+    return response_text
 
 
 def extract_flight_info(flight_data: Dict[str, Any]) -> Dict[str, str]:
