@@ -1,0 +1,277 @@
+# Russian translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-08-07 12:12+0100\n"
+"PO-Revision-Date: 2024-08-07 12:12+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.15.0\n"
+
+#: handlers/flight_handlers.py:19
+msgid ""
+"Введите город отправления, пункт назначения и даты поездки для поиска "
+"билетов.\n"
+"Откуда вы хотите полететь?"
+msgstr "Enter the departure city, destination, and travel dates to search for tickets.\nWhere do you want to fly from?"
+
+#: handlers/flight_handlers.py:29
+msgid "✅ Выберите конкретный город отправления:"
+msgstr "✅ Select a specific departure city:"
+
+#: handlers/flight_handlers.py:37
+msgid "Куда вы хотите полететь?"
+msgstr "Where do you want to fly to?"
+
+#: handlers/flight_handlers.py:44
+msgid "✅ Выберите конкретный город назначения:"
+msgstr "✅ Select a specific destination city:"
+
+#: handlers/flight_handlers.py:53
+msgid "Выберите тип вашей поездки:"
+msgstr "Select the type of your trip:"
+
+#: handlers/flight_handlers.py:68
+msgid "Сколько человек будет путешествовать? (введите число)"
+msgstr "How many people will be traveling? (enter a number)"
+
+#: handlers/flight_handlers.py:78
+msgid "Введите дату отправления (в формате ГГГГ-ММ-ДД):"
+msgstr "Enter the departure date (in YYYY-MM-DD format):"
+
+#: handlers/flight_handlers.py:80
+msgid "❌ Пожалуйста, введите корректное число."
+msgstr "❌ Please enter a valid number."
+
+#: handlers/flight_handlers.py:121
+msgid "❌ Данные о рейсе не найдены."
+msgstr "❌ Flight information not found."
+
+#: handlers/group_chat.py:11
+msgid "Добро пожаловать наши халявщики!"
+msgstr "Welcome our freebie hunters!"
+
+#: handlers/user_private.py:25
+msgid "🌐 Пожалуйста, выберите язык, который вы хотите использовать:"
+msgstr "🌐 Please select the language you want to use:"
+
+#: handlers/user_private.py:28
+msgid "❌ Произошла ошибка на сервера. Пожалуйста, попробуйте позже. /start"
+msgstr "❌ A server error occurred. Please try again later. /start"
+
+#: handlers/user_private.py:33
+msgid "Вот список ваших избранных рейсов."
+msgstr "Here is your list of favorite flights."
+
+#: handlers/user_private.py:38
+msgid "Введите информацию о рейсе, который хотите добавить в избранное."
+msgstr "Enter the flight information you want to add to favorites."
+
+#: handlers/user_private.py:43
+msgid "Введите информацию о рейсе, который хотите удалить из избранного."
+msgstr "Enter the flight information you want to remove from favorites."
+
+#: handlers/user_private.py:48
+msgid "Настройте уведомления о снижении или повышении цен."
+msgstr "Set up price drop or rise notifications."
+
+#: handlers/user_private.py:53
+msgid "Настройки бота."
+msgstr "Bot settings."
+
+#: handlers/user_private.py:70
+msgid "Язык успешно изменен!"
+msgstr "Language successfully changed!"
+
+#: helpers/bot_cmds_list.py:5
+msgid "Запуск бота и приветственное сообщение"
+msgstr "Start the bot and welcome message"
+
+#: helpers/bot_cmds_list.py:6
+msgid "Посмотреть меню"
+msgstr "View menu"
+
+#: helpers/bot_cmds_list.py:7
+msgid "Поиск авиабилетов"
+msgstr "Search for airline tickets"
+
+#: helpers/bot_cmds_list.py:8
+msgid "Просмотр списка избранных рейсов"
+msgstr "View list of favorite flights"
+
+#: helpers/bot_cmds_list.py:9
+msgid "Добавить рейс в избранное"
+msgstr "Add flight to favorites"
+
+#: helpers/bot_cmds_list.py:10
+msgid "Удалить рейс из избранного"
+msgstr "Remove flight from favorites"
+
+#: helpers/bot_cmds_list.py:11
+msgid "Настройка уведомлений"
+msgstr "Notification settings"
+
+#: helpers/bot_cmds_list.py:12
+msgid "Настройки бота"
+msgstr "Bot settings"
+
+#: helpers/bot_cmds_list.py:13
+msgid "О нас"
+msgstr "About us"
+
+#: helpers/common.py:39
+msgid "❌ Извините, не удалось найти аэропорты для данного города."
+msgstr "❌ Sorry, no airports found for this city."
+
+#: helpers/common.py:40
+msgid "Введите аэропорт еще раз:"
+msgstr "Enter the airport again:"
+
+#: helpers/common.py:64
+msgid ""
+"✅✈️ Найденные рейсы:\n"
+"\n"
+"Вот и они! Выберите интересующий вас рейс из списка ниже."
+msgstr "✅✈️ Found flights:\n\nHere they are! Choose the flight you are interested in from the list below."
+
+#: helpers/common.py:71
+msgid ""
+"❌ К сожалению, рейсов не найдено.\n"
+"\n"
+"Попробуйте изменить параметры поиска и повторить попытку."
+msgstr "❌ Unfortunately, no flights were found.\n\nTry changing the search parameters and try again."
+
+#: helpers/common.py:77
+msgid "❌ Произошла ошибка. Пожалуйста, попробуйте еще раз позже. /start"
+msgstr "❌ An error occurred. Please try again later. /start"
+
+#: helpers/common.py:88
+msgid "Введите дату возвращения (в формате ГГГГ-ММ-ДД):"
+msgstr "Enter the return date (in YYYY-MM-DD format):"
+
+#: helpers/common.py:90
+msgid ""
+"🛫 Запрос отправлен! Мы ищем рейсы для вас. Пожалуйста, подождите немного."
+" ⌛"
+msgstr "🛫 Request sent! We are looking for flights for you. Please wait a moment. ⌛"
+
+#: helpers/common.py:98
+msgid "❌ Неизвестный тип поездки."
+msgstr "❌ Unknown trip type."
+
+#: helpers/common.py:100
+msgid "✅ Вы выбрали билет в одну сторону ✈️."
+msgstr "✅ You have chosen a one-way ticket ✈️."
+
+#: helpers/common.py:102
+msgid "✅ Вы выбрали возвратный билет ✈️🔄."
+msgstr "✅ You have chosen a return ticket ✈️🔄."
+
+#: helpers/replies_texts.py:2
+msgid ""
+"\n"
+"Привет! 👋 Добро пожаловать в FlySaverBot! ✈️\n"
+"\n"
+"Я помогу тебе найти самые дешевые авиабилеты и буду следить за "
+"изменениями цен на твои избранные рейсы.\n"
+"\n"
+"Вот что я умею:\n"
+"🔍 Поиск билетов: Введи город отправления, пункт назначения и даты "
+"поездки.\n"
+"💼 Избранные рейсы: Сохрани рейс в избранное, чтобы следить за его ценой.\n"
+"📉 Уведомления: Получай оповещения о снижении и повышении цен на избранные"
+" рейсы.\n"
+"\n"
+"Начнем? Введи команду или город отправления, чтобы найти билеты!\n"
+msgstr "Hello! 👋 Welcome to FlySaverBot! ✈️\n\nI will help you find the cheapest airline tickets and track price changes for your favorite flights.\n\nHere’s what I can do:\n🔍 Ticket search: Enter the departure city, destination, and travel dates.\n💼 Favorite flights: Save a flight to favorites to track its price.\n📉 Notifications: Get notifications about price drops and increases for your favorite flights.\n\nShall we begin? Enter a command or departure city to find tickets!\n"
+
+#: helpers/replies_texts.py:16
+msgid ""
+"FlySaverBot помогает искать и отслеживать дешевые авиабилеты. "
+"Разработчик: Даниил Козлов - @leyofficial . "
+msgstr "FlySaverBot helps you find and track cheap airline tickets. Developer: Daniil Kozlov - @leyofficial."
+
+#: helpers/replies_texts.py:18
+msgid ""
+"\n"
+"    Список команд:\n"
+"    \n"
+"    /start - Запуск бота и приветственное сообщение.\n"
+"    /help - Информация о доступных командах и как пользоваться ботом.\n"
+"    /search - Поиск авиабилетов.\n"
+"    /favorites - Просмотр списка избранных рейсов.\n"
+"    /track - Добавление рейса в избранное.\n"
+"    /untrack - Удаление рейса из избранного.\n"
+"    /notifications - Настройка уведомлений.\n"
+"    /settings - Настройки бота.\n"
+"    /about - Информация о боте.\n"
+"    "
+msgstr ""
+"\n"
+"    Command list:\n"
+"    \n"
+"    /start - Start the bot and welcome message.\n"
+"    /help - Information about available commands and how to use the bot.\n"
+"    /search - Search for airline tickets.\n"
+"    /favorites - View list of favorite flights.\n"
+"    /track - Add a flight to favorites.\n"
+"    /untrack - Remove a flight from favorites.\n"
+"    /notifications - Set up notifications.\n"
+"    /settings - Bot settings.\n"
+"    /about - About the bot.\n"
+"    "
+
+#: helpers/replies_texts.py:32
+msgid ""
+"🛫 **Авиакомпания:** {company}\n"
+"📍 **Откуда:** {departure_city}\n"
+"📍 **Куда:** {arrival_city}\n"
+"🕒 **Продолжительность:** {duration}\n"
+"📅 **Дата отправления:** {departure_date}\n"
+"📅 **Дата возращения:** {return_date}\n"
+"⏰ **Время отправления:** {departure_time}\n"
+"⏰ **Время прибытия:** {arrival_time}\n"
+"💵 **Цена:** {price}\n"
+msgstr ""
+"🛫 **Airline:** {company}\n"
+"📍 **From:** {departure_city}\n"
+"📍 **To:** {arrival_city}\n"
+"🕒 **Duration:** {duration}\n"
+"📅 **Departure Date:** {departure_date}\n"
+"📅 **Return Date:** {return_date}\n"
+"⏰ **Departure Time:** {departure_time}\n"
+"⏰ **Arrival Time:** {arrival_time}\n"
+"💵 **Price:** {price}\n"
+
+#: helpers/replies_texts.py:44
+msgid ""
+"🎉 **Поиск завершен!**\n"
+"\n"
+"🚀 Спасибо, что использовали наш бот для поиска авиабилетов. Мы рады были "
+"помочь вам найти подходящий рейс.\n"
+"\n"
+"🗂️ Ваши данные очищены, и поиск завершен.\n"
+"\n"
+"🔄 **Новый поиск:** Вы можете начать новый поиск прямо сейчас. Просто "
+"нажмите кнопку ниже!"
+msgstr ""
+"🎉 **Search complete!**\n"
+"\n"
+"🚀 Thank you for using our bot to search for airline tickets. We were happy "
+"to help you find a suitable flight.\n"
+"\n"
+"🗂️ Your data has been cleared, and the search is complete.\n"
+"\n"
+"🔄 **New search:** You can start a new search right now. Just click the "
+"button below!"

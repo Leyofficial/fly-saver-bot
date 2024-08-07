@@ -8,6 +8,7 @@ from filters.chat_types import ChatTypeFilter
 from helpers.replies_texts import FINISHED_SEARCH, FLIGHT_DETAILS_TEMPLATE
 from keyboards import reply
 from keyboards.reply import MyCallback, back_or_finish_kb, finished_search
+from aiogram.utils.i18n import gettext as _
 
 my_flight_router = Router()
 my_flight_router.message.filter(ChatTypeFilter(['private']))
@@ -15,9 +16,9 @@ my_flight_router.message.filter(ChatTypeFilter(['private']))
 
 @my_flight_router.callback_query(StateFilter(None), MyCallback.filter(F.foo == "search"))
 async def departure_search_cmd(query: types.CallbackQuery, state: FSMContext):
-    await query.message.answer(
+    await query.message.answer(_(
         "Введите город отправления, пункт назначения и даты поездки для поиска билетов.\n"
-        "Откуда вы хотите полететь?"
+        "Откуда вы хотите полететь?")
     )
     await state.set_state(AddFlight.waiting_for_city)
 
@@ -25,7 +26,7 @@ async def departure_search_cmd(query: types.CallbackQuery, state: FSMContext):
 @my_flight_router.message(StateFilter(AddFlight.waiting_for_city))
 async def handle_search_text(message: types.Message, state: FSMContext):
     await handle_city_selection(
-        message, state, AddFlight.departure, "✅ Выберите конкретный город отправления:"
+        message, state, AddFlight.departure, _("✅ Выберите конкретный город отправления:")
     )
 
 
@@ -33,14 +34,14 @@ async def handle_search_text(message: types.Message, state: FSMContext):
 async def select_departure_city(query: types.CallbackQuery, callback_data: MyCallback, state: FSMContext):
     fromId = callback_data.foo
     await state.update_data(fromIdCode=fromId)
-    await query.message.answer(f"Куда вы хотите полететь?")
+    await query.message.answer(_("Куда вы хотите полететь?"))
     await state.set_state(AddFlight.arrival)
 
 
 @my_flight_router.message(StateFilter(AddFlight.arrival))
 async def handle_arrival_city(message: types.Message, state: FSMContext):
     await handle_city_selection(
-        message, state, AddFlight.waiting_for_arrival_city, "✅ Выберите конкретный город назначения:"
+        message, state, AddFlight.waiting_for_arrival_city, _("✅ Выберите конкретный город назначения:")
     )
 
 
@@ -49,7 +50,7 @@ async def select_arrival_city(query: types.CallbackQuery, callback_data: MyCallb
     toId = callback_data.foo
     await state.update_data(toIdCode=toId)
     await query.message.answer(
-        "Выберите тип вашей поездки:",
+        _("Выберите тип вашей поездки:"),
         reply_markup=reply.type_trip
     )
     await state.set_state(AddFlight.type_trip)
@@ -64,7 +65,7 @@ async def select_type_trip(query: types.CallbackQuery, callback_data: MyCallback
     await query.message.answer(response_text)
 
     if trip_type in ['one_way', 'return_way']:
-        await query.message.answer("Сколько человек будет путешествовать? (введите число)")
+        await query.message.answer(_("Сколько человек будет путешествовать? (введите число)"))
         await state.set_state(AddFlight.waiting_for_adults)
 
 
@@ -74,9 +75,9 @@ async def handle_adults(message: types.Message, state: FSMContext):
         answer = int(message.text)
         await state.update_data(adults=answer)
         await state.set_state(AddFlight.departure_date)
-        await message.answer("Введите дату отправления (в формате ГГГГ-ММ-ДД):")
+        await message.answer(_("Введите дату отправления (в формате ГГГГ-ММ-ДД):"))
     except ValueError:
-        await message.answer("❌ Пожалуйста, введите корректное число.")
+        await message.answer(_("❌ Пожалуйста, введите корректное число."))
 
 
 @my_flight_router.message(StateFilter(AddFlight.departure_date))
@@ -117,4 +118,4 @@ async def handle_selected_flight(query: types.CallbackQuery, callback_data: MyCa
         details_text = FLIGHT_DETAILS_TEMPLATE.format(**flight_info)
         await query.message.answer(details_text, parse_mode='Markdown', reply_markup=back_or_finish_kb())
     else:
-        await query.message.answer("❌ Данные о рейсе не найдены.")
+        await query.message.answer(_("❌ Данные о рейсе не найдены."))

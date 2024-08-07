@@ -8,6 +8,7 @@ from aiogram.fsm.state import StatesGroup, State
 from keyboards.reply import get_departures_city, get_summary_data_kb
 from requests_to_api.get_airports_info import get_all_airports
 from requests_to_api.get_flight_info import get_summary_results
+from aiogram.utils.i18n import gettext as _
 
 
 class AddFlight(StatesGroup):
@@ -35,8 +36,8 @@ async def handle_city_selection(message: types.Message, state: FSMContext, next_
         )
         await state.set_state(next_state)
     else:
-        await message.answer("❌ Извините, не удалось найти аэропорты для данного города.")
-        await message.answer("Введите аэропорт еще раз:")
+        await message.answer(_("❌ Извините, не удалось найти аэропорты для данного города."))
+        await message.answer(_("Введите аэропорт еще раз:"))
 
 
 async def fetch_flight_data(flight_id: str, res: Dict[str, any]):
@@ -60,20 +61,20 @@ async def get_result_info(message, state, res):
     if res and res.get('data'):
         flight_count = res['data']['context']['totalResults']
         if flight_count > 0:
-            await message.answer(
+            await message.answer(_(
                 "✅✈️ Найденные рейсы:\n\n"
-                "Вот и они! Выберите интересующий вас рейс из списка ниже.",
+                "Вот и они! Выберите интересующий вас рейс из списка ниже."),
                 reply_markup=get_summary_data_kb(filter_flights_info(res['data'])),
             )
             await state.update_data(flights=res['data'])
         else:
-            await message.answer(
+            await message.answer(_(
                 "❌ К сожалению, рейсов не найдено.\n\n"
-                "Попробуйте изменить параметры поиска и повторить попытку."
+                "Попробуйте изменить параметры поиска и повторить попытку.")
             )
 
     else:
-        await message.answer('❌ Произошла ошибка. Пожалуйста, попробуйте еще раз позже. /start')
+        await message.answer(_('❌ Произошла ошибка. Пожалуйста, попробуйте еще раз позже. /start'))
         await state.clear()
 
 
@@ -84,9 +85,9 @@ async def handle_flight_date(message: types.Message, state: FSMContext, date_typ
 
     if date_type == 'departure_date' and data.get('trip_type') == 'return_way':
         await state.set_state(AddFlight.arrival_date)
-        await message.answer("Введите дату возвращения (в формате ГГГГ-ММ-ДД):")
+        await message.answer(_("Введите дату возвращения (в формате ГГГГ-ММ-ДД):"))
     else:
-        await message.answer("🛫 Запрос отправлен! Мы ищем рейсы для вас. Пожалуйста, подождите немного. ⌛")
+        await message.answer(_("🛫 Запрос отправлен! Мы ищем рейсы для вас. Пожалуйста, подождите немного. ⌛"))
         if data:
             res = get_summary_results(data)
             await get_result_info(message, state, res)
@@ -94,11 +95,11 @@ async def handle_flight_date(message: types.Message, state: FSMContext, date_typ
 
 def handle_trip_type(trip_type: str):
     """Проверяет тип поездки"""
-    response_text = "❌ Неизвестный тип поездки."
+    response_text = _("❌ Неизвестный тип поездки.")
     if trip_type == 'one_way':
-        response_text = "✅ Вы выбрали билет в одну сторону ✈️."
+        response_text = _("✅ Вы выбрали билет в одну сторону ✈️.")
     elif trip_type == 'return_way':
-        response_text = "✅ Вы выбрали возвратный билет ✈️🔄."
+        response_text = _("✅ Вы выбрали возвратный билет ✈️🔄.")
 
     return response_text
 

@@ -47,6 +47,18 @@ finished_search = InlineKeyboardMarkup(
 )
 
 
+lang_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="🇷🇺 Русский", callback_data=MyCallback(foo="ru").pack())
+        ],
+        [
+            InlineKeyboardButton(text="🇬🇧 English", callback_data=MyCallback(foo="en").pack())
+        ]
+    ]
+)
+
+
 def get_departures_city(cities):
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[[
