@@ -1,53 +1,54 @@
 from aiogram.utils.i18n import gettext as _
 
-GREETING = ('''
-Привет! 👋 Добро пожаловать в FlySaverBot! ✈️
+GREETING_ENG = ('''
+Hello! 👋 Welcome to FlySaverBot! ✈️
 
-Я помогу тебе найти самые дешевые авиабилеты и буду следить за изменениями цен на твои избранные рейсы.
+I will help you find the cheapest airline tickets and track price changes for your favorite flights.
 
-Вот что я умею:
-🔍 Поиск билетов: Введи город отправления, пункт назначения и даты поездки.
-💼 Избранные рейсы: Сохрани рейс в избранное, чтобы следить за его ценой.
-📉 Уведомления: Получай оповещения о снижении и повышении цен на избранные рейсы.
+Here’s what I can do:
+🔍 Ticket search: Enter the departure city, destination, and travel dates.
+💼 Favorite flights: Save a flight to favorites to track its price.
+📉 Notifications: Get notifications about price drops and increases for your favorite flights.
 
-Начнем? Введи команду или город отправления, чтобы найти билеты!
+Shall we begin? Enter a command or departure city to find tickets!
 ''').strip()
 
+ABOUT_BOT_ENG = "FlySaverBot helps you find and track cheap airline tickets. Developer: Danyil Kozlov - @leyofficial."
 
-ABOUT_BOT = ("FlySaverBot помогает искать и отслеживать дешевые авиабилеты. Разработчик: Даниил Козлов - @leyofficial . ")
 
-HELP = ('''
-    Список команд:
-    
-    /start - Запуск бота и приветственное сообщение.
-    /help - Информация о доступных командах и как пользоваться ботом.
-    /search - Поиск авиабилетов.
-    /favorites - Просмотр списка избранных рейсов.
-    /track - Добавление рейса в избранное.
-    /untrack - Удаление рейса из избранного.
-    /notifications - Настройка уведомлений.
-    /settings - Настройки бота.
-    /about - Информация о боте.
+HELP_ENG = ('''
+    Command list:
+
+    /start - Start the bot and welcome message.
+    /help - Information about available commands and how to use the bot.
+    /search - Search for airline tickets.
+    /favorites - View list of favorite flights.
+    /track - Add a flight to favorites.
+    /untrack - Remove a flight from favorites.
+    /notifications - Set up notifications.
+    /settings - Bot settings.
+    /about - About the bot.
     ''')
 
-FLIGHT_DETAILS_TEMPLATE = (
-    "🛫 **Авиакомпания:** {company}\n"
-    "📍 **Откуда:** {departure_city}\n"
-    "📍 **Куда:** {arrival_city}\n"
-    "🕒 **Продолжительность:** {duration}\n"
-    "📅 **Дата отправления:** {departure_date}\n"
-    "📅 **Дата возращения:** {return_date}\n"
-    "⏰ **Время отправления:** {departure_time}\n"
-    "⏰ **Время прибытия:** {arrival_time}\n"
-    "💵 **Цена:** {price}\n"
+
+FLIGHT_DETAILS_TEMPLATE_ENG = (
+    "🛫 **Airline:** {company}\n"
+    "📍 **From:** {departure_city}\n"
+    "📍 **To:** {arrival_city}\n"
+    "🕒 **Duration:** {duration}\n"
+    "📅 **Departure Date:** {departure_date}\n"
+    "📅 **Return Date:** {return_date}\n"
+    "⏰ **Departure Time:** {departure_time}\n"
+    "⏰ **Arrival Time:** {arrival_time}\n"
+    "💵 **Price:** {price}\n"
 )
 
-FINISHED_SEARCH = (
-    "🎉 **Поиск завершен!**\n\n"
-    "🚀 Спасибо, что использовали наш бот для поиска авиабилетов. "
-    "Мы рады были помочь вам найти подходящий рейс.\n\n"
-    "🗂️ Ваши данные очищены, и поиск завершен.\n\n"
-    "🔄 **Новый поиск:** Вы можете начать новый поиск прямо сейчас. "
-    "Просто нажмите кнопку ниже!"
-)
 
+FINISHED_SEARCH_ENG = (
+    "🎉 **Search Complete!**\n\n"
+    "🚀 Thank you for using our bot to search for airline tickets. "
+    "We were happy to help you find a suitable flight.\n\n"
+    "🗂️ Your data has been cleared, and the search is complete.\n\n"
+    "🔄 **New search:** You can start a new search right now. "
+    "Just click the button below!"
+)

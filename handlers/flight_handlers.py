@@ -5,10 +5,9 @@ from aiogram.fsm.context import FSMContext
 from helpers.common import AddFlight, handle_city_selection, fetch_flight_data, handle_flight_date, \
     extract_flight_info, get_result_info, handle_trip_type
 from filters.chat_types import ChatTypeFilter
-from helpers.replies_texts import FINISHED_SEARCH, FLIGHT_DETAILS_TEMPLATE
+from helpers.replies_texts import FINISHED_SEARCH_ENG, FLIGHT_DETAILS_TEMPLATE_ENG
 from keyboards import reply
 from keyboards.reply import MyCallback, back_or_finish_kb, finished_search
-from aiogram.utils.i18n import gettext as _
 
 my_flight_router = Router()
 my_flight_router.message.filter(ChatTypeFilter(['private']))
@@ -16,9 +15,9 @@ my_flight_router.message.filter(ChatTypeFilter(['private']))
 
 @my_flight_router.callback_query(StateFilter(None), MyCallback.filter(F.foo == "search"))
 async def departure_search_cmd(query: types.CallbackQuery, state: FSMContext):
-    await query.message.answer(_(
-        "Введите город отправления, пункт назначения и даты поездки для поиска билетов.\n"
-        "Откуда вы хотите полететь?")
+    await query.message.answer(
+        "Enter the departure city, destination, and travel dates to search for tickets.\n"
+        "Where do you want to fly from?"
     )
     await state.set_state(AddFlight.waiting_for_city)
 
@@ -26,7 +25,7 @@ async def departure_search_cmd(query: types.CallbackQuery, state: FSMContext):
 @my_flight_router.message(StateFilter(AddFlight.waiting_for_city))
 async def handle_search_text(message: types.Message, state: FSMContext):
     await handle_city_selection(
-        message, state, AddFlight.departure, _("✅ Выберите конкретный город отправления:")
+        message, state, AddFlight.departure, "✅ Please choose a specific departure city:"
     )
 
 
@@ -34,14 +33,14 @@ async def handle_search_text(message: types.Message, state: FSMContext):
 async def select_departure_city(query: types.CallbackQuery, callback_data: MyCallback, state: FSMContext):
     fromId = callback_data.foo
     await state.update_data(fromIdCode=fromId)
-    await query.message.answer(_("Куда вы хотите полететь?"))
+    await query.message.answer("Where do you want to fly to?")
     await state.set_state(AddFlight.arrival)
 
 
 @my_flight_router.message(StateFilter(AddFlight.arrival))
 async def handle_arrival_city(message: types.Message, state: FSMContext):
     await handle_city_selection(
-        message, state, AddFlight.waiting_for_arrival_city, _("✅ Выберите конкретный город назначения:")
+        message, state, AddFlight.waiting_for_arrival_city, "✅ Select a specific destination city:"
     )
 
 
@@ -50,7 +49,7 @@ async def select_arrival_city(query: types.CallbackQuery, callback_data: MyCallb
     toId = callback_data.foo
     await state.update_data(toIdCode=toId)
     await query.message.answer(
-        _("Выберите тип вашей поездки:"),
+        "Select the type of your trip:",
         reply_markup=reply.type_trip
     )
     await state.set_state(AddFlight.type_trip)
@@ -65,7 +64,7 @@ async def select_type_trip(query: types.CallbackQuery, callback_data: MyCallback
     await query.message.answer(response_text)
 
     if trip_type in ['one_way', 'return_way']:
-        await query.message.answer(_("Сколько человек будет путешествовать? (введите число)"))
+        await query.message.answer("👥 How many people will be traveling? (enter a number)")
         await state.set_state(AddFlight.waiting_for_adults)
 
 
@@ -75,9 +74,9 @@ async def handle_adults(message: types.Message, state: FSMContext):
         answer = int(message.text)
         await state.update_data(adults=answer)
         await state.set_state(AddFlight.departure_date)
-        await message.answer(_("Введите дату отправления (в формате ГГГГ-ММ-ДД):"))
+        await message.answer("📅 Enter the departure date (in YYYY-MM-DD format):")
     except ValueError:
-        await message.answer(_("❌ Пожалуйста, введите корректное число."))
+        await message.answer("❌ Please enter a valid number.")
 
 
 @my_flight_router.message(StateFilter(AddFlight.departure_date))
@@ -99,7 +98,7 @@ async def handle_selected_on_flight(query: types.CallbackQuery, callback_data: M
             await get_result_info(query.message, state, {"data": data['flights']})
     elif selected == 'finish':
         await state.clear()
-        await query.message.answer(FINISHED_SEARCH, reply_markup=finished_search, parse_mode='Markdown')
+        await query.message.answer(FINISHED_SEARCH_ENG, reply_markup=finished_search, parse_mode='Markdown')
 
 
 @my_flight_router.callback_query(MyCallback.filter())
@@ -113,9 +112,9 @@ async def handle_selected_flight(query: types.CallbackQuery, callback_data: MyCa
         destination_img_url = data['flights']['destinationImageUrl']
 
         if destination_img_url:
-            await query.message.answer_photo(photo=destination_img_url, caption="Детали рейса:")
+            await query.message.answer_photo(photo=destination_img_url, caption="Flight details:")
 
-        details_text = FLIGHT_DETAILS_TEMPLATE.format(**flight_info)
+        details_text = FLIGHT_DETAILS_TEMPLATE_ENG.format(**flight_info)
         await query.message.answer(details_text, parse_mode='Markdown', reply_markup=back_or_finish_kb())
     else:
-        await query.message.answer(_("❌ Данные о рейсе не найдены."))
+        await query.message.answer("❌ Flight information not found.")
