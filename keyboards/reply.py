@@ -11,20 +11,20 @@ class MyCallback(CallbackData, prefix="my"):
 start_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="Поиск авиабилетов 🔍", callback_data=MyCallback(foo='search').pack()),
+            InlineKeyboardButton(text="Search for airline tickets 🔍", callback_data=MyCallback(foo='search').pack()),
         ],
         [
-            InlineKeyboardButton(text="Избранные рейсы 💼", callback_data=MyCallback(foo='favorites').pack()),
-            InlineKeyboardButton(text="Добавить рейс ➕", callback_data=MyCallback(foo='track').pack()),
-            InlineKeyboardButton(text="Удалить рейс ❌", callback_data=MyCallback(foo='untrack').pack()),
+            InlineKeyboardButton(text="Favorite flights 💼", callback_data=MyCallback(foo='favorites').pack()),
+            InlineKeyboardButton(text="Add flight ➕", callback_data=MyCallback(foo='track').pack()),
+            InlineKeyboardButton(text="Remove flight ❌", callback_data=MyCallback(foo='untrack').pack()),
         ],
         [
-            InlineKeyboardButton(text="Уведомления 📢", callback_data=MyCallback(foo='notifications').pack()),
-            InlineKeyboardButton(text="Настройки ⚙️", callback_data=MyCallback(foo='settings').pack()),
-            InlineKeyboardButton(text="О нас ℹ️", callback_data=MyCallback(foo='about').pack()),
+            InlineKeyboardButton(text="Notifications 📢", callback_data=MyCallback(foo='notifications').pack()),
+            InlineKeyboardButton(text="Settings ⚙️", callback_data=MyCallback(foo='settings').pack()),
+            InlineKeyboardButton(text="About us ℹ️", callback_data=MyCallback(foo='about').pack()),
         ],
         [
-            InlineKeyboardButton(text="Помощь ❓", callback_data=MyCallback(foo='help').pack()),
+            InlineKeyboardButton(text="Help ❓", callback_data=MyCallback(foo='help').pack()),
         ],
     ],
 )
@@ -32,8 +32,8 @@ start_kb = InlineKeyboardMarkup(
 type_trip = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="Возвратная ✈️🔄", callback_data=MyCallback(foo='return_way').pack()),
-            InlineKeyboardButton(text="В одну сторону ✈️", callback_data=MyCallback(foo='one_way').pack()),
+            InlineKeyboardButton(text="One-way ✈️", callback_data=MyCallback(foo='one_way').pack()),
+            InlineKeyboardButton(text="Return ✈️🔄", callback_data=MyCallback(foo='return_way').pack()),
         ],
     ]
 )
@@ -41,7 +41,7 @@ type_trip = InlineKeyboardMarkup(
 finished_search = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="Новый поиск 🔍", callback_data=MyCallback(foo="search").pack())
+            InlineKeyboardButton(text="New search 🔍", callback_data=MyCallback(foo="search").pack())
         ]
     ]
 )
@@ -87,13 +87,13 @@ def back_or_finish_kb():
         inline_keyboard=[
             [
                 InlineKeyboardButton(
-                    text="🔙 Назад",
+                    text="🔙 Back",
                     callback_data=MyCallback(foo="back").pack()
                 )
             ],
             [
                 InlineKeyboardButton(
-                    text="✅ Завершить поиск",
+                    text="✅ Complete search",
                     callback_data=MyCallback(foo="finish").pack()
                 )
             ]

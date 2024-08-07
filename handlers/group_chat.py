@@ -8,4 +8,4 @@ my_group_chat.message.filter(ChatTypeFilter(['channel', 'group', 'supergroup']))
 
 @my_group_chat.message(CommandStart())
 async def start_cmd(message: types.Message) -> None:
-    await message.answer("Добро пожаловать наши халявщики!")
+    await message.answer(_("Добро пожаловать наши халявщики!"))
